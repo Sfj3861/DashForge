@@ -11,6 +11,7 @@ Important:
 """
 from __future__ import annotations
 import argparse, json, random, re, sys
+from urllib.request import urlretrieve
 from pathlib import Path
 from collections import defaultdict
 from openpyxl import load_workbook
@@ -100,13 +101,21 @@ def is_platformer(record):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--input", required=True, help="Path to the dataset's metadata-only JSONL file")
+    ap.add_argument("--input", default="2026_50k_rated_nodata.jsonl", help="Path to metadata-only JSONL (default: 2026_50k_rated_nodata.jsonl)")
+    ap.add_argument("--download", action="store_true", help="Download the metadata JSONL from Hugging Face if the input file is missing")
     ap.add_argument("--workbook", required=True, help="Existing DashForge 1,820-slot XLSX")
     ap.add_argument("--seed", type=int, default=3861, help="Deterministic shuffle seed")
     args = ap.parse_args()
     source, output = Path(args.input), Path(args.workbook)
+    if not source.exists() and args.download:
+        url = "https://huggingface.co/datasets/yusp48/geometry-dash-levels/resolve/main/2026_50k_rated_nodata/2026_50k_rated_nodata.jsonl"
+        print(f"Downloading metadata from {url} ...")
+        try:
+            urlretrieve(url, source)
+        except Exception as exc:
+            sys.exit(f"ERROR: metadata download failed: {exc}")
     if not source.exists() or not output.exists():
-        sys.exit("ERROR: input JSONL or workbook path does not exist.")
+        sys.exit("ERROR: input JSONL or workbook path does not exist. Use --download to fetch the metadata file.")
 
     records = []
     unmapped = 0
