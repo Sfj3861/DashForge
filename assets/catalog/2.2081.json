@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "game_version": "2.2081",
+  "status": "starter-catalog-not-verified-in-game",
+  "coordinate_units": "to-be-validated",
+  "objects": [
+    { "key": "ground", "object_id": null, "category": "terrain", "placeable": false },
+    { "key": "spike", "object_id": null, "category": "hazard", "placeable": false },
+    { "key": "double_spike", "object_id": null, "category": "hazard", "placeable": false },
+    { "key": "orb", "object_id": null, "category": "interactive", "placeable": false },
+    { "key": "decoration_marker", "object_id": null, "category": "decoration", "placeable": false }
+  ],
+  "notes": [
+    "Object IDs and placement semantics must be verified against target GD/Geode bindings before enabling level export.",
+    "Null IDs are intentional: this is a schema starter, not a validated object database."
+  ]
+}
