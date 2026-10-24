@@ -60,7 +60,8 @@
         "status": "catalog-to-research"
       }
     ],
-    "note": "The list of patches is illustrative and must be checked against the release history; every 2.2-derived patch remains in the single 2.2 era."
+    "note": "The user-defined research matrix has 12 eras. The precise mapping of historical releases into those 12 buckets must be documented consistently; Geometry Dash 1.0 is one era, and 2.2 plus its derivative/patch releases is one single era.",
+    "era_count_target": 12
   },
   "object_catalog": {
     "requirement": "Record the objects available in each era, with object ID, category, first known version, availability evidence, and changes/removal notes.",
@@ -96,9 +97,18 @@
       ]
     },
     "rated_online_community": {
-      "inclusion": "10 selected community levels for each difficulty category represented in each era.",
+      "inclusion": "Exactly 1,200 rated community levels as the target corpus, separate from all official RobTop levels collected via RobsVault.",
+      "target_count": 1200,
+      "calculation": {
+        "levels_per_difficulty_per_era": 10,
+        "difficulty_categories_per_era": 10,
+        "eras": 12,
+        "total": "10 × 10 × 12 = 1,200"
+      },
       "rating_required": true,
       "exclude_unrated": true,
+      "era_count": 12,
+      "difficulty_category_count": 10,
       "selection_goal": "The coolest/most instructive levels: prioritize creativity, gameplay quality, representative techniques, and diversity rather than popularity alone.",
       "selection_metadata": [
         "level_name",
@@ -111,12 +121,14 @@
         "selection_rationale",
         "level_data_source",
         "verification_status"
-      ]
+      ],
+      "coverage_rule": "Track progress toward the 1,200-level target with a 12-era × 10-difficulty × 10-level matrix. If a cell lacks verified rated candidates or usable native level data, record it as a gap rather than silently substituting unrated levels."
     }
   },
   "difficulty_categories": {
-    "policy": "Use the game's applicable rated difficulty categories for the era; record Demon sub-difficulty separately where available. Treat platformer Moon ratings separately from classic star ratings when applicable.",
-    "note": "Do not fabricate a category or force an exact count when reliable rated candidates or source level data cannot be verified; flag the gap."
+    "target_count": 10,
+    "policy": "Use the user's 10 difficulty categories consistently across all 12 eras. Record the exact category taxonomy in a separate mapping before curation; track Demon sub-difficulty and platformer Moon ratings distinctly where relevant.",
+    "note": "The target is 10 categories × 10 rated community levels × 12 eras = 1,200. Do not fabricate categories or claim full coverage before each matrix cell is verified."
   },
   "analysis_targets": [
     "Object vocabulary and object placement patterns",
@@ -132,5 +144,5 @@
     "Screenshots/videos may aid visual analysis but do not replace native level data for learning object placement.",
     "Do not claim the corpus is complete until coverage and source data have been checked."
   ],
-  "status": "specification-only; research and native level parsing not yet implemented"
+  "status": "specification-only; 1,200 rated community levels are a target, not yet collected or analyzed"
 }
