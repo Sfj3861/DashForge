@@ -16,20 +16,21 @@
     "official_robtop_levels_are_separate_and_unlimited": true
   },
   "mandatory_seed_levels": [
-    {"name":"SuperSonic","creator":null,"level_id":null,"target_era":"2.0","cohort":"Insane Demon","status":"needs-verification"},
-    {"name":"Sonic Wave","creator":null,"level_id":null,"target_era":"2.0","cohort":"Extreme Demon","status":"needs-verification"},
-    {"name":"Nine Circles","creator":null,"level_id":null,"target_era":"1.9","cohort":"Hard Demon","status":"needs-verification"},
-    {"name":"Bloodbath","creator":"Riot","level_id":"10565740","target_era":"1.9","cohort":"Extreme Demon","status":"metadata-candidate"},
-    {"name":"Sonar","creator":null,"level_id":"4454123","target_era":"1.9","cohort":"N/A (reference)","status":"metadata-candidate"},
-    {"name":"Level Easy","creator":"Cody","level_id":"11940","target_era":"1.0","cohort":"Easy","status":"metadata-candidate"},
-    {"name":"Future Funk","creator":"JonathanGD","level_id":null,"target_era":"2.1","cohort":"Hard Demon","status":"needs-verification"},
-    {"name":"ReTraY","creator":null,"level_id":"6508283","target_era":null,"cohort":"N/A (reference)","status":"metadata-candidate"},
-    {"name":"Chill Out","creator":"Darnoc","level_id":null,"target_era":"1.0","cohort":"N/A (reference)","status":"needs-verification"}
+    {"name":"SuperSonic","creator":null,"level_id":null,"target_era":"2.0 (provisional)","cohort":"Insane Demon (provisional)","status":"needs-verification"},
+    {"name":"Sonic Wave","creator":null,"level_id":null,"target_era":"2.0 (provisional)","cohort":"Extreme Demon (provisional)","status":"needs-verification"},
+    {"name":"Nine Circles","creator":null,"level_id":null,"target_era":"1.9 (provisional)","cohort":"Hard Demon (provisional)","status":"needs-verification"},
+    {"name":"Bloodbath","creator":"Riot (provisional)","level_id":"10565740","target_era":"1.9 (provisional)","cohort":"Extreme Demon (provisional)","status":"metadata-candidate"},
+    {"name":"Sonar","creator":null,"level_id":"4454123","target_era":null,"cohort":null,"status":"metadata-candidate"},
+    {"name":"Level Easy","creator":"Cody (dataset attribution)","level_id":"11940","target_era":"1.0 (provisional)","cohort":"Easy (provisional)","status":"metadata-candidate"},
+    {"name":"Future Funk","creator":"JonathanGD (provisional)","level_id":null,"target_era":"2.1 (provisional)","cohort":"Hard Demon (provisional)","status":"needs-verification"},
+    {"name":"ReTraY","creator":null,"level_id":"6508283","target_era":null,"cohort":null,"status":"metadata-candidate"},
+    {"name":"Chill Out","creator":"Darnoc","level_id":null,"target_era":"1.0 (requested historical target)","cohort":null,"status":"needs-verification"}
   ],
   "notes": [
     "This is not the completed 1,820-level corpus.",
-    "IDs from the metadata dataset are candidates and must be checked against the live server.",
+    "IDs from the metadata dataset are candidates and must be checked against authoritative sources.",
     "Native level strings are not included here.",
+    "Target-era and cohort fields marked provisional are not verified historical facts.",
     "Keep historical release era distinct from the matrix cell used for a substitute."
   ]
 }
