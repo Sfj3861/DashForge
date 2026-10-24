@@ -1,6 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include "Generator.hpp"
+#include "Corpus.hpp"
 
 using namespace geode::prelude;
 
@@ -9,20 +10,25 @@ class $modify(DashForgeMenuLayer, MenuLayer) {
         if (!MenuLayer::init()) return false;
         auto menu = this->getChildByID("bottom-menu");
         if (!menu) {
-            log::warn("DashForge: bottom-menu node not found; skipping entry button.");
+            log::warn("DashForge: bottom-menu node not found; skipping entry buttons.");
             return true;
         }
-        auto sprite = CCSprite::createWithSpriteFrameName("GJ_likeBtn_001.png");
-        if (!sprite) sprite = CCSprite::create();
-        if (sprite) {
-            auto button = CCMenuItemSpriteExtra::create(
-                sprite, this, menu_selector(DashForgeMenuLayer::onDashForge));
-            if (button) {
-                button->setID("dashforge-entry"_spr);
-                menu->addChild(button);
-                menu->updateLayout();
-            }
-        }
+
+        auto makeButton = [this, menu](char const* frame, char const* id, SEL_MenuHandler callback) {
+            auto sprite = CCSprite::createWithSpriteFrameName(frame);
+            if (!sprite) sprite = CCSprite::create();
+            if (!sprite) return;
+            auto button = CCMenuItemSpriteExtra::create(sprite, this, callback);
+            if (!button) return;
+            button->setID(id);
+            menu->addChild(button);
+        };
+
+        makeButton("GJ_likeBtn_001.png", "dashforge-entry"_spr,
+                   menu_selector(DashForgeMenuLayer::onDashForge));
+        makeButton("GJ_searchBtn_001.png", "dashforge-corpus"_spr,
+                   menu_selector(DashForgeMenuLayer::onDashForgeCorpus));
+        menu->updateLayout();
         return true;
     }
 
@@ -36,7 +42,12 @@ class $modify(DashForgeMenuLayer, MenuLayer) {
         auto layout = dashforge::generateLayout(options);
         std::string message = "DashForge's offline prototype generator ran successfully.\n\n" +
             layout.summary +
-            "\n\nThis build creates an internal event plan only. It does not yet place Geometry Dash objects or save/import a playable level. That integration is the next milestone.";
+            "\n\nThis build creates an internal event plan only. It does not yet place Geometry Dash objects or save/import a playable level.";
         FLAlertLayer::create("DashForge - Prototype", message, "OK")->show();
+    }
+
+    void onDashForgeCorpus(CCObject*) {
+        FLAlertLayer::create("DashForge - Level Corpus",
+            dashforge::makeCorpusReport(), "OK")->show();
     }
 };
