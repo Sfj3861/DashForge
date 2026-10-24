@@ -24,9 +24,9 @@ class $modify(DashForgeMenuLayer, MenuLayer) {
             menu->addChild(button);
         };
 
-        makeButton("GJ_likeBtn_001.png", "dashforge-entry"_spr,
+        makeButton("GJ_likeBtn_001.png", "dashforge-entry",
                    menu_selector(DashForgeMenuLayer::onDashForge));
-        makeButton("GJ_searchBtn_001.png", "dashforge-corpus"_spr,
+        makeButton("GJ_searchBtn_001.png", "dashforge-corpus",
                    menu_selector(DashForgeMenuLayer::onDashForgeCorpus));
         menu->updateLayout();
         return true;
