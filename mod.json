@@ -7,19 +7,26 @@
   "developer": "Sfj3861",
   "description": "Local Geometry Dash layout generation research prototype.",
   "repository": "https://github.com/Sfj3861/DashForge",
-  "tags": ["utility", "gameplay"],
+  "tags": ["utility", "gameplay", "offline"],
+  "dependencies": {
+    "geode.node-ids": ">=v1.23.3"
+  },
   "settings": {
     "generation-seed": {
       "name": "Generation seed",
       "description": "Use the same seed to reproduce a generated layout.",
-      "type": "integer",
-      "default": 3861
+      "type": "int",
+      "default": 3861,
+      "min": 0,
+      "max": 2147483647
     },
     "layout-length": {
       "name": "Layout length (seconds)",
       "description": "Target duration for the prototype generator.",
-      "type": "integer",
-      "default": 30
+      "type": "int",
+      "default": 30,
+      "min": 5,
+      "max": 180
     }
   }
 }
