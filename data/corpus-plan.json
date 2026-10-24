@@ -138,6 +138,52 @@
         ],
         "analysis_rule": "Do not mislabel a Gauntlet substitute as a level originating in the historical era being studied; preserve its actual release era and flag it as a substitute.",
         "status": "planned"
+      },
+      "mandatory_examples": [
+        {
+          "level_name": "SuperSonic",
+          "required": true
+        },
+        {
+          "level_name": "Sonic Wave",
+          "required": true
+        },
+        {
+          "level_name": "Nine Circles",
+          "required": true
+        },
+        {
+          "level_name": "Bloodbath",
+          "required": true
+        },
+        {
+          "level_name": "Sonar",
+          "required": true
+        },
+        {
+          "level_name": "Level Easy",
+          "required": true
+        },
+        {
+          "level_name": "Future Funk",
+          "required": true
+        },
+        {
+          "level_name": "Retray",
+          "required": true
+        },
+        {
+          "level_name": "Chill Out",
+          "creator": "Darnoc",
+          "target_era": "1.0",
+          "required": true
+        }
+      ],
+      "mandatory_selection_policy": {
+        "rule": "Every named mandatory level must be included in the corpus if its identity and level data can be verified. Mandatory examples count toward the 1,200 target rather than being added on top of it, unless the corpus accounting later explicitly chooses otherwise.",
+        "historical_coverage": "Include many influential early-era levels by Darnoc and Neptune, prioritizing historically important and representative levels while preserving actual release era and creator attribution.",
+        "relevance_selection": "After mandatory levels, fill remaining slots with historically relevant and technically instructive rated levels, not merely random popular picks.",
+        "verification": "Verify exact level identity, creator, rating/difficulty, release/era, and availability of native level data; do not silently substitute similarly named levels."
       }
     }
   },
@@ -158,7 +204,8 @@
     "Preserve original level data unchanged.",
     "Store provenance and verification state for every object and level.",
     "Screenshots/videos may aid visual analysis but do not replace native level data for learning object placement.",
-    "Do not claim the corpus is complete until coverage and source data have been checked."
+    "Do not claim the corpus is complete until coverage and source data have been checked.",
+    "Mandatory named levels and creator-attribution requirements must be tracked as explicit inclusion checks in the corpus matrix."
   ],
-  "status": "specification-only; 1,200 training examples are a target, not yet collected or analyzed"
+  "status": "specification-only; mandatory examples and creator priorities recorded, but levels have not yet been collected or analyzed"
 }
