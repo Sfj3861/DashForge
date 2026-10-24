@@ -9,59 +9,122 @@
         "id": "1.0",
         "label": "Geometry Dash 1.0",
         "versions": [
-          "1.0"
+          "1.0",
+          "patches of 1.0"
         ],
-        "status": "catalog-to-research"
+        "status": "candidate-collection"
       },
       {
-        "id": "1.x",
-        "label": "Geometry Dash 1.x",
+        "id": "1.1",
+        "label": "Geometry Dash 1.1",
         "versions": [
-          "major 1.x releases and their patches"
+          "1.1",
+          "patches of 1.1"
         ],
-        "status": "catalog-to-research"
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.2",
+        "label": "Geometry Dash 1.2",
+        "versions": [
+          "1.2",
+          "patches of 1.2"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.3",
+        "label": "Geometry Dash 1.3",
+        "versions": [
+          "1.3",
+          "patches of 1.3"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.4",
+        "label": "Geometry Dash 1.4",
+        "versions": [
+          "1.4",
+          "patches of 1.4"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.5",
+        "label": "Geometry Dash 1.5",
+        "versions": [
+          "1.5",
+          "patches of 1.5"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.6",
+        "label": "Geometry Dash 1.6",
+        "versions": [
+          "1.6",
+          "patches of 1.6"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.7",
+        "label": "Geometry Dash 1.7",
+        "versions": [
+          "1.7",
+          "patches of 1.7"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.8",
+        "label": "Geometry Dash 1.8",
+        "versions": [
+          "1.8",
+          "patches of 1.8"
+        ],
+        "status": "candidate-collection"
+      },
+      {
+        "id": "1.9",
+        "label": "Geometry Dash 1.9",
+        "versions": [
+          "1.9",
+          "patches of 1.9"
+        ],
+        "status": "candidate-collection"
       },
       {
         "id": "2.0",
         "label": "Geometry Dash 2.0",
         "versions": [
-          "2.0 and patches"
+          "2.0",
+          "patches of 2.0"
         ],
-        "status": "catalog-to-research"
+        "status": "candidate-collection"
       },
       {
         "id": "2.1",
         "label": "Geometry Dash 2.1",
         "versions": [
-          "2.1 and patches"
+          "2.1",
+          "patches of 2.1"
         ],
-        "status": "catalog-to-research"
+        "status": "candidate-collection"
       },
       {
         "id": "2.2",
-        "label": "Geometry Dash 2.2 era",
+        "label": "Geometry Dash 2.2 era (including derivative patches)",
         "versions": [
           "2.2",
-          "2.201",
-          "2.202",
-          "2.203",
-          "2.204",
-          "2.205",
-          "2.206",
-          "2.207",
-          "2.2071",
-          "2.2072",
-          "2.2073",
-          "2.2074",
-          "2.208",
-          "2.2081",
-          "2.209 and later 2.2-derived patches"
+          "2.201–2.209 and all 2.2-derived patches"
         ],
-        "status": "catalog-to-research"
+        "status": "candidate-collection"
       }
     ],
-    "note": "The user-defined research matrix has 12 eras. The precise mapping of historical releases into those 12 buckets must be documented consistently; Geometry Dash 1.0 is one era, and 2.2 plus its derivative/patch releases is one single era.",
-    "era_count_target": 12
+    "note": "Exactly 13 user-defined eras: 1.0 through 1.9, then 2.0, 2.1, and 2.2. All 2.2-derived patches stay in the single 2.2 bucket.",
+    "era_count_target": 13
   },
   "object_catalog": {
     "requirement": "Record the objects available in each era, with object ID, category, first known version, availability evidence, and changes/removal notes.",
@@ -97,18 +160,18 @@
       ]
     },
     "rated_online_community": {
-      "inclusion": "Target exactly 1,200 community training examples across 12 eras × 10 difficulty categories × 10 examples. Use rated online community levels where available; for early-era difficulty categories with too few eligible rated levels (or where the category did not exist), fill the remaining slots with randomly selected Gauntlet levels.",
-      "target_count": 1200,
+      "inclusion": "Target exactly 1,820 community examples across 13 eras × 14 analytical difficulty/mode cohorts × 10 examples. Use rated online community levels where available; where early eras lack enough eligible levels or a category did not exist, use randomly selected Gauntlet levels as explicitly flagged substitutes.",
+      "target_count": 1820,
       "calculation": {
         "levels_per_difficulty_per_era": 10,
-        "difficulty_categories_per_era": 10,
-        "eras": 12,
-        "total": "10 × 10 × 12 = 1,200"
+        "difficulty_categories_per_era": 14,
+        "eras": 13,
+        "total": "10 × 14 × 13 = 1,820"
       },
       "rating_required": true,
       "exclude_unrated": true,
-      "era_count": 12,
-      "difficulty_category_count": 10,
+      "era_count": 13,
+      "difficulty_category_count": 14,
       "selection_goal": "The coolest/most instructive levels: prioritize creativity, gameplay quality, representative techniques, and diversity rather than popularity alone.",
       "selection_metadata": [
         "level_name",
@@ -122,7 +185,7 @@
         "level_data_source",
         "verification_status"
       ],
-      "coverage_rule": "Track progress toward the 1,200-example target with a 12-era × 10-difficulty × 10-example matrix. Fill cells with eligible rated community levels first; use randomly selected Gauntlet levels as clearly labelled substitutes when early-era categories or candidate counts are insufficient. Do not claim the corpus is complete until all examples and source data are verified.",
+      "coverage_rule": "Track progress with a 13-era × 14-cohort × 10-example matrix. Fill with eligible rated community levels first; use Gauntlet substitutes only when necessary and record their true release era. Do not claim completion until all 1,820 entries, rating/era metadata, and native level data are verified.",
       "gauntlet_fallback": {
         "enabled": true,
         "trigger": "An early-era difficulty cell lacks enough eligible rated community levels, or that difficulty category did not yet exist in the era.",
@@ -188,9 +251,25 @@
     }
   },
   "difficulty_categories": {
-    "target_count": 10,
-    "policy": "Use the user's 10 difficulty categories consistently across all 12 eras. Record the exact category taxonomy in a separate mapping before curation; track Demon sub-difficulty and platformer Moon ratings distinctly where relevant.",
-    "note": "The 10-category matrix is the target structure for corpus accounting, not a claim that all 10 difficulty categories existed in every historical era. For early-era gaps, use the documented Gauntlet substitution rule."
+    "target_count": 14,
+    "categories": [
+      "Auto",
+      "Easy",
+      "Normal",
+      "Hard",
+      "Harder",
+      "Insane",
+      "Easy Demon",
+      "Medium Demon",
+      "Hard Demon",
+      "Insane Demon",
+      "Extreme Demon",
+      "N/A (reference only; not eligible as rated training data)",
+      "Platformer Moon — non-Demon",
+      "Platformer Moon — Demon"
+    ],
+    "policy": "These are 14 analytical cohorts, not 14 difficulty icons that all existed in every update. Platformer Moon cohorts are analytical groupings, not separate official classic difficulty icons. Preserve historical difficulty taxonomy and mark cohorts that did not yet exist.",
+    "note": "The 14-cohort matrix is a research-accounting structure. Early-era gaps use the documented Gauntlet substitution rule; substitutes must not be mislabeled as historical levels."
   },
   "analysis_targets": [
     "Object vocabulary and object placement patterns",
@@ -207,5 +286,5 @@
     "Do not claim the corpus is complete until coverage and source data have been checked.",
     "Mandatory named levels and creator-attribution requirements must be tracked as explicit inclusion checks in the corpus matrix."
   ],
-  "status": "specification-only; mandatory examples and creator priorities recorded, but levels have not yet been collected or analyzed"
+  "status": "specification and importer committed; collection not complete. The importer can populate names/IDs from public metadata, but native level strings and historical release/rating dates still require verification."
 }
