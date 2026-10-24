@@ -1,0 +1,25 @@
+name: Build DashForge
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["**"]
+
+jobs:
+  build:
+    name: Build Android64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Geode mod
+        uses: geode-sdk/build-geode-mod@main
+        id: build
+        with:
+          target: Android64
+          sdk: latest
+      - name: Upload .geode package
+        uses: actions/upload-artifact@v4
+        with:
+          name: DashForge-Android64
+          path: ${{ steps.build.outputs.build-output }}/*.geode
+          if-no-files-found: error
