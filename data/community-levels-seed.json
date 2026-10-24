@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "project": "DashForge",
+  "status": "starter-catalogue-only",
+  "target": {
+    "eras": ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1", "2.2"],
+    "cohort_count": 14,
+    "levels_per_cell": 10,
+    "community_slots": 1820
+  },
+  "policy": {
+    "never_invent_level_ids": true,
+    "never_treat_metadata_as_native_level_data": true,
+    "never_claim_complete_until_all_slots_and_native_data_are_verified": true,
+    "gauntlet_substitutes_must_keep_true_release_era_and_be_flagged": true,
+    "official_robtop_levels_are_separate_and_unlimited": true
+  },
+  "mandatory_seed_levels": [
+    {"name":"SuperSonic","creator":null,"level_id":null,"target_era":"2.0","cohort":"Insane Demon","status":"needs-verification"},
+    {"name":"Sonic Wave","creator":null,"level_id":null,"target_era":"2.0","cohort":"Extreme Demon","status":"needs-verification"},
+    {"name":"Nine Circles","creator":null,"level_id":null,"target_era":"1.9","cohort":"Hard Demon","status":"needs-verification"},
+    {"name":"Bloodbath","creator":"Riot","level_id":"10565740","target_era":"1.9","cohort":"Extreme Demon","status":"metadata-candidate"},
+    {"name":"Sonar","creator":null,"level_id":"4454123","target_era":"1.9","cohort":"N/A (reference)","status":"metadata-candidate"},
+    {"name":"Level Easy","creator":"Cody","level_id":"11940","target_era":"1.0","cohort":"Easy","status":"metadata-candidate"},
+    {"name":"Future Funk","creator":"JonathanGD","level_id":null,"target_era":"2.1","cohort":"Hard Demon","status":"needs-verification"},
+    {"name":"ReTraY","creator":null,"level_id":"6508283","target_era":null,"cohort":"N/A (reference)","status":"metadata-candidate"},
+    {"name":"Chill Out","creator":"Darnoc","level_id":null,"target_era":"1.0","cohort":"N/A (reference)","status":"needs-verification"}
+  ],
+  "notes": [
+    "This is not the completed 1,820-level corpus.",
+    "IDs from the metadata dataset are candidates and must be checked against the live server.",
+    "Native level strings are not included here.",
+    "Keep historical release era distinct from the matrix cell used for a substitute."
+  ]
+}
