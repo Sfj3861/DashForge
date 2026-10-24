@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "project": "DashForge",
+  "purpose": "Historical level/object corpus specification",
+  "era_policy": {
+    "principle": "Group by major content era, not every patch release.",
+    "eras": [
+      {
+        "id": "1.0",
+        "label": "Geometry Dash 1.0",
+        "versions": [
+          "1.0"
+        ],
+        "status": "catalog-to-research"
+      },
+      {
+        "id": "1.x",
+        "label": "Geometry Dash 1.x",
+        "versions": [
+          "major 1.x releases and their patches"
+        ],
+        "status": "catalog-to-research"
+      },
+      {
+        "id": "2.0",
+        "label": "Geometry Dash 2.0",
+        "versions": [
+          "2.0 and patches"
+        ],
+        "status": "catalog-to-research"
+      },
+      {
+        "id": "2.1",
+        "label": "Geometry Dash 2.1",
+        "versions": [
+          "2.1 and patches"
+        ],
+        "status": "catalog-to-research"
+      },
+      {
+        "id": "2.2",
+        "label": "Geometry Dash 2.2 era",
+        "versions": [
+          "2.2",
+          "2.201",
+          "2.202",
+          "2.203",
+          "2.204",
+          "2.205",
+          "2.206",
+          "2.207",
+          "2.2071",
+          "2.2072",
+          "2.2073",
+          "2.2074",
+          "2.208",
+          "2.2081",
+          "2.209 and later 2.2-derived patches"
+        ],
+        "status": "catalog-to-research"
+      }
+    ],
+    "note": "The list of patches is illustrative and must be checked against the release history; every 2.2-derived patch remains in the single 2.2 era."
+  },
+  "object_catalog": {
+    "requirement": "Record the objects available in each era, with object ID, category, first known version, availability evidence, and changes/removal notes.",
+    "status_values": [
+      "unverified",
+      "source-checked",
+      "validated-in-game"
+    ],
+    "fields": [
+      "object_id",
+      "name_or_key",
+      "category",
+      "first_version",
+      "last_version_if_removed",
+      "availability_status",
+      "source",
+      "notes"
+    ],
+    "rule": "Do not mark an object as available or validated without evidence; distinguish object existence from whether it can be placed in the editor."
+  },
+  "training_corpora": {
+    "official_robtop": {
+      "inclusion": "All available official RobTop levels, using RobsVault as the collection/reference source, including spin-off levels and beta variants when their identity/version can be established.",
+      "per_era_top_ten_limit": false,
+      "metadata": [
+        "level_name",
+        "source_account",
+        "era",
+        "game_mode",
+        "difficulty",
+        "level_data_source",
+        "verification_status"
+      ]
+    },
+    "rated_online_community": {
+      "inclusion": "10 selected community levels for each difficulty category represented in each era.",
+      "rating_required": true,
+      "exclude_unrated": true,
+      "selection_goal": "The coolest/most instructive levels: prioritize creativity, gameplay quality, representative techniques, and diversity rather than popularity alone.",
+      "selection_metadata": [
+        "level_name",
+        "creator",
+        "level_id",
+        "era",
+        "difficulty",
+        "rating_type",
+        "rating_verified",
+        "selection_rationale",
+        "level_data_source",
+        "verification_status"
+      ]
+    }
+  },
+  "difficulty_categories": {
+    "policy": "Use the game's applicable rated difficulty categories for the era; record Demon sub-difficulty separately where available. Treat platformer Moon ratings separately from classic star ratings when applicable.",
+    "note": "Do not fabricate a category or force an exact count when reliable rated candidates or source level data cannot be verified; flag the gap."
+  },
+  "analysis_targets": [
+    "Object vocabulary and object placement patterns",
+    "Gameplay structures and transitions",
+    "Rhythm and sync patterns",
+    "Difficulty-specific mechanics and pacing",
+    "Decoration techniques and visual motifs",
+    "Differences between eras and between official and community design"
+  ],
+  "data_integrity": [
+    "Preserve original level data unchanged.",
+    "Store provenance and verification state for every object and level.",
+    "Screenshots/videos may aid visual analysis but do not replace native level data for learning object placement.",
+    "Do not claim the corpus is complete until coverage and source data have been checked."
+  ],
+  "status": "specification-only; research and native level parsing not yet implemented"
+}
