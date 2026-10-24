@@ -97,7 +97,7 @@
       ]
     },
     "rated_online_community": {
-      "inclusion": "Exactly 1,200 rated community levels as the target corpus, separate from all official RobTop levels collected via RobsVault.",
+      "inclusion": "Target exactly 1,200 community training examples across 12 eras × 10 difficulty categories × 10 examples. Use rated online community levels where available; for early-era difficulty categories with too few eligible rated levels (or where the category did not exist), fill the remaining slots with randomly selected Gauntlet levels.",
       "target_count": 1200,
       "calculation": {
         "levels_per_difficulty_per_era": 10,
@@ -122,13 +122,29 @@
         "level_data_source",
         "verification_status"
       ],
-      "coverage_rule": "Track progress toward the 1,200-level target with a 12-era × 10-difficulty × 10-level matrix. If a cell lacks verified rated candidates or usable native level data, record it as a gap rather than silently substituting unrated levels."
+      "coverage_rule": "Track progress toward the 1,200-example target with a 12-era × 10-difficulty × 10-example matrix. Fill cells with eligible rated community levels first; use randomly selected Gauntlet levels as clearly labelled substitutes when early-era categories or candidate counts are insufficient. Do not claim the corpus is complete until all examples and source data are verified.",
+      "gauntlet_fallback": {
+        "enabled": true,
+        "trigger": "An early-era difficulty cell lacks enough eligible rated community levels, or that difficulty category did not yet exist in the era.",
+        "selection": "Randomly select Gauntlet levels to fill remaining slots.",
+        "provenance_required": true,
+        "required_metadata": [
+          "is_gauntlet_substitute",
+          "gauntlet_name",
+          "actual_release_era",
+          "target_matrix_era",
+          "target_difficulty_cell",
+          "selection_method"
+        ],
+        "analysis_rule": "Do not mislabel a Gauntlet substitute as a level originating in the historical era being studied; preserve its actual release era and flag it as a substitute.",
+        "status": "planned"
+      }
     }
   },
   "difficulty_categories": {
     "target_count": 10,
     "policy": "Use the user's 10 difficulty categories consistently across all 12 eras. Record the exact category taxonomy in a separate mapping before curation; track Demon sub-difficulty and platformer Moon ratings distinctly where relevant.",
-    "note": "The target is 10 categories × 10 rated community levels × 12 eras = 1,200. Do not fabricate categories or claim full coverage before each matrix cell is verified."
+    "note": "The 10-category matrix is the target structure for corpus accounting, not a claim that all 10 difficulty categories existed in every historical era. For early-era gaps, use the documented Gauntlet substitution rule."
   },
   "analysis_targets": [
     "Object vocabulary and object placement patterns",
@@ -144,5 +160,5 @@
     "Screenshots/videos may aid visual analysis but do not replace native level data for learning object placement.",
     "Do not claim the corpus is complete until coverage and source data have been checked."
   ],
-  "status": "specification-only; 1,200 rated community levels are a target, not yet collected or analyzed"
+  "status": "specification-only; 1,200 training examples are a target, not yet collected or analyzed"
 }
