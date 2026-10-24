@@ -3,26 +3,26 @@
 
 namespace dashforge {
 namespace {
-// Deliberately conservative starter catalogue. Unknown IDs/eras are not guessed.
-// "metadata-only" means the identity is a research candidate, not training-ready.
+// Conservative starter catalogue. Unknown IDs/creators/cohorts are not guessed.
+// Metadata candidates are not ready for training until checked and native data is obtained.
 const std::vector<CorpusLevel> kMandatoryCorpus = {
-    {"SuperSonic", "unknown", "2.0", "Insane Demon", "", "needs-verification",
-     "Mandatory example; verify creator, exact ID, rating and native level string."},
-    {"Sonic Wave", "unknown", "2.0", "Extreme Demon", "", "needs-verification",
-     "Mandatory example; verify creator, exact ID, rating and native level string."},
-    {"Nine Circles", "unknown", "1.9", "Hard Demon", "", "needs-verification",
-     "Mandatory example; verify exact level identity and native level string."},
-    {"Bloodbath", "Riot", "1.9", "Extreme Demon", "10565740", "metadata-candidate",
-     "Dataset seed ID; re-check against the live server and retrieve native level data."},
-    {"Sonar", "unknown", "1.9", "N/A (reference)", "4454123", "metadata-candidate",
-     "Dataset seed ID; confirm creator, actual release era and current rating."},
-    {"Level Easy", "Cody", "1.0", "Easy", "11940", "metadata-candidate",
+    {"SuperSonic", "unknown", "2.0 (provisional)", "Insane Demon (provisional)", "", "needs-verification",
+     "Mandatory example; verify creator, exact ID, rating, release era and native level string."},
+    {"Sonic Wave", "unknown", "2.0 (provisional)", "Extreme Demon (provisional)", "", "needs-verification",
+     "Mandatory example; verify creator, exact ID, rating, release era and native level string."},
+    {"Nine Circles", "unknown", "1.9 (provisional)", "Hard Demon (provisional)", "", "needs-verification",
+     "Mandatory example; verify exact identity, rating, release era and native level string."},
+    {"Bloodbath", "Riot (provisional)", "1.9 (provisional)", "Extreme Demon (provisional)", "10565740", "metadata-candidate",
+     "Dataset seed ID; re-check identity, creator, rating and era against authoritative sources."},
+    {"Sonar", "unknown", "unverified", "unverified", "4454123", "metadata-candidate",
+     "Dataset seed ID only; verify identity, creator, difficulty and historical era."},
+    {"Level Easy", "Cody (dataset attribution)", "1.0 (provisional)", "Easy (provisional)", "11940", "metadata-candidate",
      "Dataset seed ID; confirm historical version and retrieve native level data."},
-    {"Future Funk", "JonathanGD", "2.1", "Hard Demon", "", "needs-verification",
-     "Mandatory example; verify exact ID and native level string."},
-    {"ReTraY", "unknown", "2.2", "N/A (reference)", "6508283", "metadata-candidate",
-     "Dataset seed ID; confirm actual release era and current rating."},
-    {"Chill Out", "Darnoc", "1.0", "N/A (reference)", "", "needs-verification",
+    {"Future Funk", "JonathanGD (provisional)", "2.1 (provisional)", "Hard Demon (provisional)", "", "needs-verification",
+     "Mandatory example; verify exact ID, rating, release era and native level string."},
+    {"ReTraY", "unknown", "unverified", "unverified", "6508283", "metadata-candidate",
+     "Dataset seed ID only; verify identity, creator, rating and historical era."},
+    {"Chill Out", "Darnoc", "1.0 (requested historical target)", "unverified", "", "needs-verification",
      "Mandatory historical example; confirm exact identity and obtain native level data."}
 };
 }
@@ -61,7 +61,8 @@ std::string makeCorpusReport() {
     }
     out << "\nImportant: metadata is not native level data. This catalogue does not train the generator yet. "
         << "Each entry must be checked against an authoritative source and its native level string must be obtained "
-        << "before it can be used for object-placement learning. Historical era labels are provisional until verified.";
+        << "before it can be used for object-placement learning. Historical era/category labels marked provisional "
+        << "must be verified before corpus selection.";
     return out.str();
 }
 } // namespace dashforge
