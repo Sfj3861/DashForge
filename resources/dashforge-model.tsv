@@ -1,0 +1,5 @@
+# DashForge learned object model v1
+# This starter file intentionally contains no learned data.
+# Run tools/export_corpus_ids.py on the completed 1,820-slot workbook, then
+# tools/train_level_model.py --ids-file corpus-level-ids.txt --input <full-shard.jsonl>
+# The runtime will fall back to the heuristic generator until O/T rows exist.
