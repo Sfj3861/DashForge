@@ -5,9 +5,14 @@
   "name": "DashForge",
   "version": "0.1.0",
   "developer": "Sfj3861",
-  "description": "Local Geometry Dash layout generation research prototype.",
+  "description": "Offline Geometry Dash layout generation with a trainable object-transition model.",
   "repository": "https://github.com/Sfj3861/DashForge",
   "tags": ["utility", "gameplay", "offline"],
+  "resources": {
+    "files": [
+      "resources/dashforge-model.tsv"
+    ]
+  },
   "dependencies": {
     "geode.node-ids": ">=v1.23.3"
   },
