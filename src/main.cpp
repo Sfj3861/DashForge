@@ -39,11 +39,12 @@ class $modify(DashForgeMenuLayer, MenuLayer) {
         options.durationSeconds = static_cast<unsigned>(
             Mod::get()->getSettingValue<int64_t>("layout-length"));
         options.structured = true;
-        auto layout = dashforge::generateLayout(options);
-        std::string message = "DashForge's offline prototype generator ran successfully.\n\n" +
+        auto modelPath = (Mod::get()->getResourcesDir() / "dashforge-model.tsv").string();
+        auto layout = dashforge::generateLayout(options, modelPath);
+        std::string message = "DashForge's offline generator ran.\n\n" +
             layout.summary +
-            "\n\nThis build creates an internal event plan only. It does not yet place Geometry Dash objects or save/import a playable level.";
-        FLAlertLayer::create("DashForge - Prototype", message, "OK")->show();
+            "\n\nImportant: this is a learned event/object-ID plan, not yet a playable level. The mod still needs the editor integration that creates real GameObjects, validates them and saves a separate level.";
+        FLAlertLayer::create("DashForge - Generator", message, "OK")->show();
     }
 
     void onDashForgeCorpus(CCObject*) {
